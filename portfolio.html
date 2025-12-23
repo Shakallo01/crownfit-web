@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | CROWNFIT DIGITAL CONCEPTS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        
+        :root {
+            --primary: #2A4B8C;
+            --secondary: #FFD700;
+            --accent: #333;
+            --light: #F8F9FA;
+            --gray: #666;
+            --light-gray: #e9ecef;
+            --transition: 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--accent);
+            background: var(--light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #1a3a7a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+        
+        .btn-secondary:hover {
+            background: #e6c200;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        /* Logo container for company logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+        
+        .company-logo {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+         .logo-text {
+            color: black;
+        }
+        
+        .logo-text h1 {
+            font-size: 25px;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .nav-toggle {
+            display: block;
+            margin-left: auto;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        /* PAGE HERO */
+        .page-hero {
+            padding: 150px 0 60px;
+            background: linear-gradient(rgba(42,75,140,0.9), rgba(42,75,140,0.9)), 
+                        url('images/portbg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* PORTFOLIO FILTER */
+        .portfolio-filter {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* PORTFOLIO GRID */
+        .portfolio-grid-section {
+            padding: 40px 0 80px;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 300px;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(42,75,140,0.9));
+            color: white;
+            padding: 30px 25px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .tag {
+            background: var(--secondary);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* PROJECT CATEGORIES */
+        .categories {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .category-count {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+        
+        /* STATS */
+        .stats {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-number span {
+            display: block;
+        }
+        
+        /* CTA */
+        .portfolio-cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(42,75,140,0.9), rgba(42,75,140,0.9));
+            color: white;
+            text-align: center;
+        }
+        
+        .portfolio-cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            color: white;
+        }
+        
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            animation: modalFade 0.3s;
+        }
+        
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 2001;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--accent);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .modal-img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .page-hero {
+                padding: 130px 0 50px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1rem;
+            }
+            
+            .filter-buttons {
+                gap: 8px;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portfolio-item {
+                height: 250px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .modal-content {
+                margin: 10px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+<header>
+    <div class="container header-container">
+        <!-- Company Logo Container (on the left) -->
+        <div class="logo-container">
+            <img src="images/logo1.png" alt="CROWNFIT Logo" class="company-logo">
+            <div class="logo-text">
+                <h1>Crownfit Digital Concepts</h1>
+            </div>
+        </div>
+        
+        <!-- Navigation Menu -->
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Hamburger menu (stays on right) -->
+        <div class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>Showcasing our recent works and creative projects that bring ideas to life</p>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO FILTER -->
+    <section class="portfolio-filter">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Creative Works</h2>
+                <p>Browse through our collection of completed projects</p>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="t-shirts">T-Shirts</button>
+                <button class="filter-btn" data-filter="id-cards">ID Cards</button>
+                <button class="filter-btn" data-filter="banners">Banners</button>
+                <button class="filter-btn" data-filter="certificates">Certificates</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <!-- <button class="filter-btn" data-filter="documents">Documents</button> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO GRID -->
+    <section class="portfolio-grid-section">
+        <div class="container">
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item" data-category="t-shirts" data-id="1">
+                    <img src="images/bolktshirt.jpeg" 
+                         alt="Student Association T-Shirts" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Student Association T-Shirts</h3>
+                        <p>Custom designed t-shirts for university student associations with vibrant colors and durable prints.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Custom Printing</span>
+                            <span class="tag">Bulk Order</span>
+                            <span class="tag">Student Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item" data-category="id-cards" data-id="2">
+                    <img src="images/idcard2.jpeg" 
+                         alt="Organization ID Cards" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Organization Staff ID Cards</h3>
+                        <p>Professional ID cards for staff members with laminated finish and clear identification details.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Laminated</span>
+                            <span class="tag">Professional</span>
+                            <span class="tag">Security Features</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item" data-category="banners" data-id="3">
+                    <img src="images/ceremony.jpeg" 
+                         alt="Event Flex Banner" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Graduation Ceremony Banner</h3>
+                        <p>Large format flex banner for university graduation ceremony with high-resolution printing.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Large Format</span>
+                            <span class="tag">Event</span>
+                            <span class="tag">Weather Resistant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <!-- <div class="portfolio-item" data-category="certificates" data-id="4">
+                    <img src="https://images.unsplash.com/photo-1556740738-6a8c276a3ee1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="School Certificates" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Award Certificates Design</h3>
+                        <p>Elegant certificate designs for school awards and recognition ceremonies with premium paper stock.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Premium Paper</span>
+                            <span class="tag">Elegant Design</span>
+                            <span class="tag">Award Ceremony</span>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item" data-category="branding" data-id="5">
+                    <img src="images/logoo.jpeg" 
+                         alt="Business Logo Design" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Business Logo & Branding Kit</h3>
+                        <p>Complete branding package for a local business including logo, color palette, and brand guidelines.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Brand Identity</span>
+                            <span class="tag">Business</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item" data-category="t-shirts" data-id="6">
+                    <img src="images/orgtshit.jpeg" 
+                         alt="Conference T-Shirts" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Academic Conference T-Shirts</h3>
+                        <p>Custom t-shirts for academic conference with detailed design and comfortable fabric.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Conference</span>
+                            <span class="tag">Academic</span>
+                            <span class="tag">Comfort Fit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 7 -->
+                <!-- <div class="portfolio-item" data-category="branding" data-id="7">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Promotional Stickers" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Promotional Stickers & Labels</h3>
+                        <p>Custom stickers and labels for product packaging and business promotion.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Stickers</span>
+                            <span class="tag">Labels</span>
+                            <span class="tag">Promotional</span>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Portfolio Item 8 -->
+                <!-- <div class="portfolio-item" data-category="documents" data-id="8">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Document Binding" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Academic Document Binding</h3>
+                        <p>Professional spiral binding and laminating services for academic projects and theses.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Spiral Binding</span>
+                            <span class="tag">Academic</span>
+                            <span class="tag">Laminating</span>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Portfolio Item 9 -->
+                <div class="portfolio-item" data-category="banners" data-id="9">
+                    <img src="images/shop.jpeg" 
+                         alt="Shop Banner" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Business Shop Signage</h3>
+                        <p>Custom shop banners and signage for local businesses with vibrant colors and clear messaging.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Shop Signage</span>
+                            <span class="tag">Business</span>
+                            <span class="tag">Advertising</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT CATEGORIES -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Categories</h2>
+                <p>Explore our work across different service categories</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Custom T-Shirts</h3>
+                    <p>Student groups, events, businesses, and organizations</p>
+                    <div class="category-count">24+</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>ID Cards</h3>
+                    <p>Student, staff, and membership identification cards</p>
+                    <div class="category-count">18+</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Banners & Signage</h3>
+                    <p>Events, campaigns, shops, and business promotion</p>
+                    <div class="category-count">32+</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Certificates</h3>
+                    <p>Awards, recognition, and completion certificates</p>
+                    <div class="category-count">45+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact in Numbers</h2>
+                <p>Quality work delivered to satisfied clients</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500<span>+</span></div>
+                    <h3>Projects Completed</h3>
+                    <p>Successfully delivered creative projects</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">98<span>%</span></div>
+                    <h3>Client Satisfaction</h3>
+                    <p>Happy clients and repeat business</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24<span>/7</span></div>
+                    <h3>Support Available</h3>
+                    <p>Always ready to assist our clients</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24<span>hrs</span></div>
+                    <h3>Average Delivery</h3>
+                    <p>Fast turnaround for most projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="portfolio-cta">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p style="margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Inspired by our work? Let's collaborate on your next creative project. Contact us today to discuss your ideas and requirements.
+            </p>
+            <a href="http://wa.me/2348144881743" class="btn btn-secondary" style="margin-right: 15px;">Start a Project</a>
+            <a href="services.html" class="btn">View Services</a>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <img id="modalImage" src="" alt="" class="modal-img">
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+                <div id="modalTags" class="portfolio-tags"></div>
+                <div style="margin-top: 30px;">
+                    <h4>Project Details</h4>
+                    <p id="modalDetails"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-crown"></i>CROWNFIT
+                    </div>
+                    <p>Bringing creative ideas to life through professional design and printing solutions.</p>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">
+                        <i class="fas fa-clock" style="margin-right: 10px;"></i> Mon-Sat: 8:00am – 6:00pm<br>
+                        <i class="fas fa-clock" style="margin-right: 10px;"></i> Sun: Online orders only
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--secondary); margin-bottom: 20px;">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html" style="color: white; text-decoration: none; line-height: 2;">Home</a></li>
+                        <li><a href="services.html" style="color: white; text-decoration: none; line-height: 2;">Services</a></li>
+                        <li><a href="portfolio.html" style="color: white; text-decoration: none; line-height: 2;">Portfolio</a></li>
+                        <li><a href="about.html" style="color: white; text-decoration: none; line-height: 2;">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--secondary); margin-bottom: 20px;">Contact Info</h4>
+                    <p style="line-height: 2;">
+                        <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> State-Lowcost Byepass<br>Lapai, Niger State<br>
+                        <i class="fas fa-phone" style="margin-right: 10px;"></i> +2348141360403<br>+2348144881743<br>
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i> crownfita@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 CROWNFIT DIGITAL CONCEPTS. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Where Creativity Meets Quality Printing</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="http://wa.me/2348144881743" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Portfolio Data
+        const portfolioData = {
+            1: {
+                title: "Student Association T-Shirts",
+                description: "Custom designed t-shirts for university student associations with vibrant colors and durable prints.",
+                details: "This project involved designing and printing 200+ t-shirts for a student association event. We used high-quality cotton fabric with screen printing technique for durable results. The design included custom logos and event details.",
+                tags: ["Custom Printing", "Bulk Order", "Student Design", "Screen Print"]
+            },
+            2: {
+                title: "Organization Staff ID Cards",
+                description: "Professional ID cards for staff members with laminated finish and clear identification details.",
+                details: "Created 50+ staff ID cards for a local organization. Features include laminated finish, professional design, clear photo and information display. Security features included to prevent tampering.",
+                tags: ["Laminated", "Professional", "Security Features", "Staff ID"]
+            },
+            3: {
+                title: "Graduation Ceremony Banner",
+                description: "Large format flex banner for university graduation ceremony with high-resolution printing.",
+                details: "10x8 feet flex banner printed for a graduation ceremony. High-resolution image quality ensured clarity from distance. Weather-resistant material used for outdoor display.",
+                tags: ["Large Format", "Event", "Weather Resistant", "Graduation"]
+            },
+            4: {
+                title: "Award Certificates Design",
+                description: "Elegant certificate designs for school awards and recognition ceremonies with premium paper stock.",
+                details: "Designed and printed 100+ award certificates for a school recognition ceremony. Used premium 250gsm paper with elegant border designs and custom text formatting.",
+                tags: ["Premium Paper", "Elegant Design", "Award Ceremony", "Custom Text"]
+            },
+            5: {
+                title: "Business Logo & Branding Kit",
+                description: "Complete branding package for a local business including logo, color palette, and brand guidelines.",
+                details: "Developed complete brand identity for a local business. Included primary and secondary logos, color palette, typography guidelines, and brand usage manual.",
+                tags: ["Logo Design", "Brand Identity", "Business", "Brand Guidelines"]
+            },
+            6: {
+                title: "Academic Conference T-Shirts",
+                description: "Custom t-shirts for academic conference with detailed design and comfortable fabric.",
+                details: "Produced 150 t-shirts for an academic conference. Design incorporated conference theme, dates, and sponsors. Used breathable fabric for comfort during the event.",
+                tags: ["Conference", "Academic", "Comfort Fit", "Event Merch"]
+            },
+            7: {
+                title: "Promotional Stickers & Labels",
+                description: "Custom stickers and labels for product packaging and business promotion.",
+                details: "Designed and printed 500+ promotional stickers for a local business. Used vinyl material for durability and weather resistance. Various sizes and shapes for different applications.",
+                tags: ["Stickers", "Labels", "Promotional", "Vinyl"]
+            },
+            8: {
+                title: "Academic Document Binding",
+                description: "Professional spiral binding and laminating services for academic projects and theses.",
+                details: "Bound and laminated 30+ academic projects and theses. Used professional spiral binding with clear plastic covers. Included custom printed cover pages.",
+                tags: ["Spiral Binding", "Academic", "Laminating", "Thesis"]
+            },
+            9: {
+                title: "Business Shop Signage",
+                description: "Custom shop banners and signage for local businesses with vibrant colors and clear messaging.",
+                details: "Created shop front signage and promotional banners for a retail business. Used UV-resistant printing for outdoor durability. Clear, readable text from street view.",
+                tags: ["Shop Signage", "Business", "Advertising", "Outdoor"]
+            }
+        };
+
+        // Mobile Navigation
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Portfolio Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const portfolioGrid = document.getElementById('portfolioGrid');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalDetails = document.getElementById('modalDetails');
+        const modalTags = document.getElementById('modalTags');
+
+        // Open modal when portfolio item is clicked
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const projectId = item.getAttribute('data-id');
+                const projectData = portfolioData[projectId];
+                const imgSrc = item.querySelector('img').src;
+                
+                // Populate modal with project data
+                modalImage.src = imgSrc;
+                modalTitle.textContent = projectData.title;
+                modalDescription.textContent = projectData.description;
+                modalDetails.textContent = projectData.details;
+                
+                // Clear and add tags
+                modalTags.innerHTML = '';
+                projectData.tags.forEach(tag => {
+                    const tagElement = document.createElement('span');
+                    tagElement.className = 'tag';
+                    tagElement.textContent = tag;
+                    modalTags.appendChild(tagElement);
+                });
+                
+                // Show modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling for same-page links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

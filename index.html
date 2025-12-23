@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROWNFIT DIGITAL CONCEPTS | Professional Printing & Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+                /* RESET & BASE */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2A4B8C;
+            --secondary: #FFD700;
+            --accent: #333;
+            --light: #F8F9FA;
+            --transition: 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--accent);
+            background: var(--light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        a {
+            text-decoration: none;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #1a3a7a;
+            transform: translateY(-2px);
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        /* Logo container for company logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+        
+        .company-logo {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+         .logo-text {
+            color: black;
+        }
+        
+        .logo-text h1 {
+            font-size: 25px;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .nav-toggle {
+            display: block;
+            margin-left: auto;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        /* HERO */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(rgba(42,75,140,0.9), rgba(42,75,140,0.9)), 
+                        url('images/homebg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* SERVICES */
+        .services {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* ABOUT */
+        .about {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px;
+        }
+        
+        .client-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+        }
+        
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(42,75,140,0.9), rgba(42,75,140,0.9));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        /* CONTACT */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background: #1a3a7a;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--accent);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            /* Mobile adjustments for logo */
+            .logo-container {
+                margin-right: auto;
+            }
+            
+            .company-logo {
+                height: 35px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+<header>
+    <div class="container header-container">
+        <!-- Company Logo Container (on the left) -->
+        <div class="logo-container">
+            <img src="images/logo1.png" alt="CROWNFIT Logo" class="company-logo">
+            <div class="logo-text">
+                <h1>Crownfit Digital Concepts</h1>
+            </div>
+        </div>
+        
+        <!-- Navigation Menu -->
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Hamburger menu (stays on right) -->
+        <div class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Your One-Stop Creative & Printing Hub</h1>
+            <p>Professional graphic design, printing, and branding solutions that bring your ideas to life with quality and creativity.</p>
+            <!-- <a href="#contact" class="btn">Get Started Today</a> -->
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions for all your printing and design needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p>Professional designs for branding, promotions, and personal use with modern tools and creative layouts.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Custom T-Shirts</h3>
+                    <p>High-quality T-shirt printing for students, groups, events, and businesses with durable prints.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>ID Cards & Certificates</h3>
+                    <p>Professional ID cards and certificates with clear prints and premium finishing for organizations.</p>
+                </div>
+            </div>
+            
+            <a href="services.html" class="btn" style="margin-top: 40px;">View All Services</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About CROWNFIT DIGITAL CONCEPTS</h2>
+                    <p>We are your trusted partner for professional graphic design, printing, and branding solutions. As dedicated digital-printing specialists, we transform your ideas into beautiful, high-quality visuals that make a lasting impression.</p>
+                    <p>We proudly serve students, businesses, organizations, and individuals with a wide range of services designed to help you communicate, promote, and stand out.</p>
+                    <p><strong>We don't just design and print, we bring your ideas to life.</strong></p>
+                </div>
+                <div class="about-image">
+                    <img src="images/crownfits.jpeg" alt="Our Printing Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by students, businesses, and organizations</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="client-img">
+                        <img src="images/student.jpeg" alt="Client">
+                    </div>
+                    <h4>Idris Shakallo - Student</h4>
+                    <p>"CROWNFIT DIGITAL CONCEPTS is the best place for students. Fast delivery and neat work every time!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Bring Your Ideas to Life?</h2>
+            <p style="margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Explore our services, place your order online, and let's create something amazing together.
+            </p>
+            <a href="http://wa.me/2348144881743" class="btn" style="background: var(--secondary); color: var(--accent);">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for your printing and design needs</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>CROWNFIT DIGITAL CONCEPTS<br>State-Lowcost Byepass, Lapai Niger State</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+2348141360403<br>+2348144881743</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>crownfita@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://facebook.com/CROWNFITDIGITALCONCEPTS" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/crownfit_digital_concepts" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="http://wa.me/2348144881743" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="email" placeholder="Email (optional)">
+                        <select required>
+                            <option value="">Select Service</option>
+                            <option>Graphic Design</option>
+                            <option>Custom T-Shirts</option>
+                            <option>ID Cards</option>
+                            <option>Banners & Posters</option>
+                            <option>Other</option>
+                        </select>
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-crown"></i> CROWNFIT
+                    </div>
+                    <p>Professional graphic design, printing, and branding solutions that make a lasting impression.</p>
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html" style="color: white; text-decoration: none; line-height: 2;">Home</a></li>
+                        <li><a href="services.html" style="color: white; text-decoration: none; line-height: 2;">Services</a></li>
+                        <li><a href="about.html" style="color: white; text-decoration: none; line-height: 2;">About</a></li>
+                       <li><a href="portfolio.html" style="color: white; text-decoration: none; line-height: 2;">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact Info</h4>
+                    <p style="line-height: 2;">
+                        <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Lapai, Niger State<br>
+                        <i class="fas fa-phone" style="margin-right: 10px;"></i> +2348141360403<br>
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i> crownfita@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 CROWNFIT DIGITAL CONCEPTS. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Design. Print. Impress.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="http://wa.me/2348144881743" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Navigation
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent. We will contact you shortly.');
+            this.reset();
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
